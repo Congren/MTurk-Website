@@ -30,11 +30,19 @@ $(document).ready(function () {
 
     // If the HIT hasn't been accepted yet, disabled the form fields.
     if(aid == "ASSIGNMENT_ID_NOT_AVAILABLE") {
-	    $('input,textarea,select').attr("DISABLED", "disabled");
+      $('input,textarea,select').attr("DISABLED", "disabled");
     }
 
     // Add a new hidden input element with name="assignmentId" that
     // with assignmentId as its value.
     var aid_input = $("<input type='hidden' name='assignmentId' value='" + aid + "'>").appendTo($(form_selector));
 
-    // Make sure the submit form's method is P
+    // Make sure the submit form's method is POST
+    $(form_selector).attr('method', 'POST');
+
+    // Set the Action of the form to the provided "turkSubmitTo" field
+    if((submit_url=gup("turkSubmitTo"))!="") {
+      $(form_selector).attr('action', submit_url + '/mturk/externalSubmit');
+    }
+  }
+});

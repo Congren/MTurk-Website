@@ -38,6 +38,3 @@ $(document).ready(function () {
     var aid_input = $("<input type='hidden' name='assignmentId' value='" + aid + "'>").appendTo($(form_selector));
 
     // Make sure the submit form's method is P
-    var aid_input = $("<input type='hidden' name='hitId' value='" + hitId + "'>").appendTo($(form_selector));
-
-var aid_input = $("<input type='hidden' name='workerId' value='" + workerId + "'>").appendTo($(form_selector));
